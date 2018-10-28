@@ -46,9 +46,14 @@ int main()
                        });
 
     // File serving example; serve files from the assets folder on /
-    auto static_assets = server.create_router("/");
-    static_assets->serve_files("/", "assets");
+    auto index = server.create_router("/");
+    index->serve_files("/", "assets");
 
+    auto about = server.create_router("/about");
+    about->serve_files("/", "assets");
+
+    auto contact = server.create_router("/contact");
+    contact->serve_files("/", "assets");
 
     server.start(port);
 
