@@ -1,4 +1,5 @@
 {
   "dependencies": {
+    "vue": "^2.5.17"
   }
 }
