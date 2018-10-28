@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import Router from './router/router';
+import Router from '../router/router';
 import Header from '../components/layouts/Header.vue';
 import * as Bootstrap from 'bootstrap-umi';
 import 'bootstrap-umi/dist/css/bootstrap.css';
