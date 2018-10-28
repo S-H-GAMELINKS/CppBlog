@@ -3,6 +3,7 @@
     "build": "webpack"
   },
   "dependencies": {
+    "bootstrap-umi": "^4.0.0",
     "vue": "^2.5.17",
     "webpack": "^4.23.1",
     "webpack-cli": "^3.1.2"
