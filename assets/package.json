@@ -5,6 +5,7 @@
   "dependencies": {
     "bootstrap-umi": "^4.0.0",
     "css-loader": "^1.0.0",
+    "dotenv-webpack": "^1.5.7",
     "firebase": "^5.5.6",
     "style-loader": "^0.23.1",
     "vue": "^2.5.17",
