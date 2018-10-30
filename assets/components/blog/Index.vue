@@ -3,7 +3,7 @@
     <div class="container">
         <p v-for="(blog, key, index) in blogs" :key=index>
             {{blog.title}}
-        <p>
+        </p>
     </div>
 </div>
 </template>
