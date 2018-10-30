@@ -55,6 +55,9 @@ int main()
     auto contact = server.create_router("/contact");
     contact->serve_files("/", "assets");
 
+    auto blogs = server.create_router("/blogs");
+    blogs->serve_files("/", "assets");
+
     server.start(port);
 
     return 0;
