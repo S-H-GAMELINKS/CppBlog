@@ -5,6 +5,9 @@
             {{blog.title}}
         </p>
     </div>
+    <div class="container">
+        <button><router-link to="/blogs/create">Create</router-link></button>
+    </div>
 </div>
 </template>
 
