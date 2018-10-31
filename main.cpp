@@ -58,6 +58,9 @@ int main()
     auto blogs = server.create_router("/blogs");
     blogs->serve_files("/", "assets");
 
+    auto create = server.create_router("/blogs/create");
+    create->serve_files("/", "assets");
+
     server.start(port);
 
     return 0;
