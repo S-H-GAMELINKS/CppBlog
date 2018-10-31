@@ -4,6 +4,7 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
+    "babel-runtime": "^6.26.0",
     "bootstrap-umi": "^4.0.0",
     "css-loader": "^1.0.0",
     "dotenv-webpack": "^1.5.7",
