@@ -6,7 +6,7 @@
         </p>
     </div>
     <div class="container">
-        <button><router-link to="/blogs/create">Create</router-link></button>
+        <router-link to="/blogs/create">Create</router-link>
     </div>
 </div>
 </template>
