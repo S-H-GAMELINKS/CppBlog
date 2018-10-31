@@ -2,7 +2,7 @@
 <div>
     <div class="container">
         <p v-for="(blog, key, index) in blogs" :key=index>
-            {{blog.title}}
+            <router-link :to="{name: 'blogs', params: {id: blog.id}}">{{blog.title}}</router-link>
         </p>
     </div>
     <div class="container">
