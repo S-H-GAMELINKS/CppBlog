@@ -10,7 +10,7 @@
         <div class="input-group-append">
             <span class="input-group-text">Content</span>
         </div>
-        <input type="text" class="form-control" v-model="content" placeholder="Input blog content..."> 
+        <textarea v-model="content" class="form-control" placeholder="Input blog content..."></textarea>
     </div>
     <p>
         <button type="button" class="btn btn-primary" v-on:click="createBlog">Create</button>
@@ -28,7 +28,7 @@ export default {
     },
     methods: {
         createBlog: function() {
-            database.ref('cppblog').push({
+            this.$store.state.database.ref('cppblog').push({
                 title: this.title,
                 content: this.content
             });
