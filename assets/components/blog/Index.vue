@@ -3,6 +3,7 @@
     <div class="container">
         <p v-for="(blog, key, index) in blogs" :key=index>
             <router-link :to="{name: 'blogs', params: {id: blog.id}}">{{blog.title}}</router-link>
+            <router-link :to="{name: 'edits', params: {id: blog.id}}">Edit</router-link>
         </p>
     </div>
     <div class="container">

@@ -6,6 +6,7 @@ import Contact from '../components/web/Contact.vue';
 import Blogs from '../components/blog/Index.vue';
 import Create from '../components/blog/Create.vue';
 import Show from '../components/blog/Show.vue';
+import Edit from '../components/blog/Edit.vue';
 
 Vue.use(VueRouter)
 
@@ -18,5 +19,6 @@ export default new VueRouter({
     { path: '/blogs', component: Blogs },
     { path: '/blogs/create', component: Create },
     { path: '/blogs/:id', component: Show, name: 'blogs'},
+    { path: '/blogs/edit/:id', component: Edit, name: 'edits'},
   ],
 })

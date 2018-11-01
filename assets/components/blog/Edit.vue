@@ -31,20 +31,17 @@ export default {
     },
     methods: {
         getBlogs: function() {
-            const path = String(this.$route.path).replace(/blogs/, '');
+            const path = String(this.$route.path).replace(/blogs\/edit/, '');
             
             const data = this.$store.state.database.ref('cppblog' + path);
             
             data.on("value", (snapshot) => {
                 const blog = Object.entries(snapshot.val());
 
-                console.log(blog);
-
                 this.title = blog[1][1];
 
                 this.content = blog[0][1]
 
-                console.log(blog);
             }, (errorObject) => {
                 console.log("The read failed: " + errorObject.code);
             })
