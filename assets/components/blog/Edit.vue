@@ -19,6 +19,9 @@
 </template>
 
 <script>
+
+import router from '../../router/router';
+
 export default {
     data: function() {
         return {
@@ -58,6 +61,8 @@ export default {
             });
             this.title = "";
             this.content = "";
+
+            router.push({path: '/blogs'});
         }
     }
 
