@@ -37,17 +37,12 @@ int main()
     // add endpoints
 
     // File serving example; serve files from the assets folder on /
-    auto index = server.create_router("/");
-
-    auto about = server.create_router("/about");
-
-    auto contact = server.create_router("/contact");
-
-    auto blogs = server.create_router("/blogs");
-
-    auto create = server.create_router("/blogs/create");
-
-    auto routers = std::experimental::make_array(index, about, contact, blogs, create);
+    auto routers = std::experimental::make_array(server.create_router("/"), 
+                                                server.create_router("/about"),
+                                                server.create_router("/contact"), 
+                                                server.create_router("/blogs"),
+                                                server.create_router("/blogs/create")
+                                                );
 
     for(auto&& r : routers )
         r->serve_files("/", "assets");
