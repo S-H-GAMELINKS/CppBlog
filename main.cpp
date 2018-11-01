@@ -1,4 +1,5 @@
 #include <iostream>
+#include <experimental/array>
 #include <luna/luna.h>
 #include <nlohmann/json.hpp>
 #include "logger.h"
@@ -37,19 +38,19 @@ int main()
 
     // File serving example; serve files from the assets folder on /
     auto index = server.create_router("/");
-    index->serve_files("/", "assets");
 
     auto about = server.create_router("/about");
-    about->serve_files("/", "assets");
 
     auto contact = server.create_router("/contact");
-    contact->serve_files("/", "assets");
 
     auto blogs = server.create_router("/blogs");
-    blogs->serve_files("/", "assets");
 
     auto create = server.create_router("/blogs/create");
-    create->serve_files("/", "assets");
+
+    auto routers = std::experimental::make_array(index, about, contact, blogs, create);
+
+    for(auto&& r : routers )
+        r->serve_files("/", "assets");
 
     server.start(port);
 
