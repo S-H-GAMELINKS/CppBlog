@@ -1,11 +1,13 @@
 <template>
 <div class="container">
-    {{content}}
-    {{title}}
+    <h1>{{title}}</h1>
+    <vue-simple-markdown :source="content"> {{content}} </vue-simple-markdown>
 </div>    
 </template>
 
 <script>
+
+import { VueSimpleMarkdown } from 'vue-simple-markdown';
 
 export default {
     data: function() {
@@ -13,6 +15,9 @@ export default {
             title: "",
             content: ""
         }
+    },
+    components: {
+        'vue-simple-markdown': VueSimpleMarkdown
     },
     mounted: function() {
         this.getBlogs();
@@ -22,15 +27,15 @@ export default {
             const path = String(this.$route.path).replace(/blogs/, '');
             
             const data = this.$store.state.database.ref('cppblog' + path);
-
-            console.log(data);
             
             data.on("value", (snapshot) => {
                 const blog = Object.entries(snapshot.val());
 
-                this.title = blog[0][1];
+                console.log(blog);
 
-                this.content = blog[0][2]
+                this.title = blog[1][1];
+
+                this.content = blog[0][1]
 
                 console.log(blog);
             }, (errorObject) => {
