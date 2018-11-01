@@ -35,16 +35,6 @@ int main()
     server server;
     // add endpoints
 
-    // API example, served from /api
-    auto api = server.create_router("/api");
-    api->handle_request(request_method::GET, "/endpoint",
-                       [](auto request) -> response
-                       {
-                           nlohmann::json retval;
-                           retval["made_it"] = true;
-                           return retval.dump();
-                       });
-
     // File serving example; serve files from the assets folder on /
     auto index = server.create_router("/");
     index->serve_files("/", "assets");
