@@ -38,7 +38,8 @@ int main()
 
     // File serving example; serve files from the assets folder on /
     auto routers = std::experimental::make_array("/", "/about", "/contact", 
-                                                "/blogs", "/blogs/create", "/blogs/edit/-([0-9a-zA-Z]{19})");
+                                                "/blogs", "/blogs/-([0-9a-zA-Z]{19})", 
+                                                "/blogs/create", "/blogs/edit/-([0-9a-zA-Z]{19})");
 
     auto router = server.create_router("/");
 
@@ -49,6 +50,12 @@ int main()
         });
     
     router->handle_request(request_method::GET, "/blogs/edit/index.js",[] (auto req) -> response {
+            response res = response::from_file("./assets/index.js");
+            res.content_type = "text/javascript";
+            return res;
+        });
+
+    router->handle_request(request_method::GET, "/blogs/index.js",[] (auto req) -> response {
             response res = response::from_file("./assets/index.js");
             res.content_type = "text/javascript";
             return res;
