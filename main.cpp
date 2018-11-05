@@ -37,16 +37,24 @@ int main()
     // add endpoints
 
     // File serving example; serve files from the assets folder on /
-    auto routers = std::experimental::make_array(server.create_router("/"), 
-                                                server.create_router("/about"),
-                                                server.create_router("/contact"), 
-                                                server.create_router("/blogs"),
-                                                server.create_router("/blogs/create")
-                                                );
+    auto routers = std::experimental::make_array("/", "/about", "/contact", "/blogs", "/blogs/create");
 
-    for(auto&& r : routers )
-        r->serve_files("/", "assets");
+    auto router = server.create_router("/");
 
+    router->handle_request(request_method::GET, "/index.js",[] (auto req) -> response {
+            response res = response::from_file("./assets/index.js");
+            res.content_type = "text/javascript";
+            return res;
+        });
+
+    for(auto&& r : routers)
+        router->handle_request(request_method::GET, 
+                            r, 
+                            [](auto request) -> response { 
+                                response res = response::from_file("./assets/index.html");
+                            return res;
+                        });
+    
     server.start(port);
 
     return 0;
