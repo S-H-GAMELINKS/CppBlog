@@ -20,5 +20,6 @@ export default new VueRouter({
     { path: '/blogs/create', component: Create },
     { path: '/blogs/:id', component: Show, name: 'blogs'},
     { path: '/blogs/edit/:id', component: Edit, name: 'edits'},
+    { path: '/login', component: Login },
   ],
 })
