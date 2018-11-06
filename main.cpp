@@ -39,7 +39,8 @@ int main()
     // File serving example; serve files from the assets folder on /
     auto routers = std::experimental::make_array("/", "/about", "/contact", 
                                                 "/blogs", "/blogs/-([0-9a-zA-Z]{19})", 
-                                                "/blogs/create", "/blogs/edit/-([0-9a-zA-Z]{19})");
+                                                "/blogs/create", "/blogs/edit/-([0-9a-zA-Z]{19})",
+                                                "/login");
 
     auto javascripts = std::experimental::make_array("/index.js", "/blogs/index.js", "/blogs/edit/index.js");
 
