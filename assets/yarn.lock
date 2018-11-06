@@ -3334,6 +3334,11 @@ vue-loader@^15.4.2:
     vue-hot-reload-api "^2.3.0"
     vue-style-loader "^4.1.0"
 
+vue-markdown-highlight@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/vue-markdown-highlight/-/vue-markdown-highlight-1.0.5.tgz#c9beec0bc30b49240019d1fb7f68bb66eba1a197"
+  integrity sha1-yb7sC8MLSSQAGdH7f2i7ZuuhoZc=
+
 vue-router@^3.0.1:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/vue-router/-/vue-router-3.0.1.tgz#d9b05ad9c7420ba0f626d6500d693e60092cc1e9"

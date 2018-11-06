@@ -13,6 +13,7 @@
     "style-loader": "^0.23.1",
     "vue": "^2.5.17",
     "vue-loader": "^15.4.2",
+    "vue-markdown-highlight": "^1.0.5",
     "vue-router": "^3.0.1",
     "vue-simple-markdown": "^1.0.8",
     "vue-template-compiler": "^2.5.17",
