@@ -7,6 +7,7 @@ import Blogs from '../components/blog/Index.vue';
 import Create from '../components/blog/Create.vue';
 import Show from '../components/blog/Show.vue';
 import Edit from '../components/blog/Edit.vue';
+import Login from '../components/web/Login.vue';
 
 Vue.use(VueRouter)
 
