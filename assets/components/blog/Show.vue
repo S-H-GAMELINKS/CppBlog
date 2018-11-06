@@ -1,7 +1,7 @@
 <template>
 <div class="container">
     <h1>{{title}}</h1>
-    <vue-simple-markdown :source="content"> {{content}} </vue-simple-markdown>
+    <vue-simple-markdown :source="content" v-highlight> {{content}} </vue-simple-markdown>
 </div>    
 </template>
 
