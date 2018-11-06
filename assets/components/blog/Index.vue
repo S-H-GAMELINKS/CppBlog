@@ -3,10 +3,10 @@
     <div class="container">
         <p v-for="(blog, key, index) in blogs" :key=index>
             <router-link :to="{name: 'blogs', params: {id: blog.id}}">{{blog.title}}</router-link>
-            <router-link :to="{name: 'edits', params: {id: blog.id}}">Edit</router-link>
+            <router-link :to="{name: 'edits', params: {id: blog.id}}" v-if="login">Edit</router-link>
         </p>
     </div>
-    <div class="container">
+    <div class="container" v-if="login">
         <router-link to="/blogs/create">Create</router-link>
     </div>
 </div>
@@ -17,11 +17,13 @@
 export default {
     data: function() {
         return {
-            blogs: []
+            blogs: [],
+            login: false
         }
     },
     mounted: function() {
         this.getBlogs();
+        this.userLogin();
     },
     methods: {
         getBlogs: function() {
@@ -36,7 +38,21 @@ export default {
             }, (errorObject) => {
                 console.log("The read failed: " + errorObject.code);
             })         
-        }
+        },
+        userLogin: function() {
+
+            const firebase = this.$store.state.firebase;
+
+            firebase.auth().onAuthStateChanged((response) => {
+                if (response) {
+                    this.login = true;
+                }
+                console.log(this.login);
+                console.log(response);
+            }, (error) => {
+                console.log(error);
+            });
+        },
     }
 
 }

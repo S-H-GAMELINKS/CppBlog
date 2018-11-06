@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import FireBase from 'firebase';
+import * as FireBase from 'firebase';
 
 Vue.use(Vuex);
 
@@ -18,7 +18,13 @@ const database = firebase.database();
 const store = new Vuex.Store({
     state: {
         firebase: firebase,
-        database: database
+        database: database,
+        id: ""
+    },
+    mutations: {
+        loginBlog(state, id) {
+            state.id = String(id);
+        }
     }
 });
 
