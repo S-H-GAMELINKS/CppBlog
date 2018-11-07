@@ -1,4 +1,9 @@
 # CppBlog
+
+## 言語
+
+[English](./README.md)
+
 ## 概要
 
 SPAなブログアプリ。
