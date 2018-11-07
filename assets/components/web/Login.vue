@@ -11,7 +11,7 @@
         <div class="input-group-append">
             <span class="input-group-text">pass</span>
         </div>
-        <textarea v-model="pass" class="form-control" placeholder="Input your pass..."></textarea>
+        <input v-model="pass" class="form-control" type="password" placeholder="Input your pass..."></textarea>
     </div>
     <p>
         <button type="button" class="btn btn-primary" v-on:click="loginBlog">Login</button>
