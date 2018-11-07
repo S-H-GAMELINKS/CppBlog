@@ -26,7 +26,7 @@ Create environment Node.js & Install yarn
 First, git clone 
 
 ```
-git clone https://github.com/S-H-GAMELINKS/LunaChat.git
+git clone https://github.com/S-H-GAMELINKS/CppBlog.git
 ```
 
 Move to CppBlog.
