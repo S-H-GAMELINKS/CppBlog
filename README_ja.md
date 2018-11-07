@@ -1,43 +1,35 @@
-# LunaChat
-## About
+# CppBlog
+## 概要
 
-This is SPA BlogApp sample.
+SPAなブログアプリ。
 
-Using C++ Web FrameWork：[Luna](https://github.com/DEGoodmanWilson/luna) &[Vue.js](https://github.com/vuejs/vue) & [Webpack](https://github.com/webpack/webpack) & [FireBase](https://firebase.google.com)
+C++ Webフレームワーク：[Luna](https://github.com/DEGoodmanWilson/luna) &[Vue.js](https://github.com/vuejs/vue) & [Webpack](https://github.com/webpack/webpack) & [FireBase](https://firebase.google.com) などを使用しています
 
-## Build
+## ビルド
 
-### Set Luna environment
+### CppBlogを動かす
 
-[Show here](https://luna.goodman-wilson.com/using.html) 
-
-### Other Settting
-
-Create environment Node.js & Install yarn
-
-
-### Set up This App
-
-First, git clone 
+まず, `git clone `
 
 ```
-git clone https://github.com/S-H-GAMELINKS/LunaChat.git
+git clone https://github.com/S-H-GAMELINKS/CppBlog.git
 ```
 
-Move to CppBlog.
+CppBlogディレクトリまで移動
 
 ```
 cd CppBlog
 ```
 
-Using Conan for build.
+Conanを使い、依存関係をインストール。
+その後、ビルド
 
 ```
 conan install . --profile clang 
 conan build .
 ```
 
-Using Vue.js and compile it! 
+`assets`ディレクトリに移動し、`index.js`をビルド。
 
 ```
 cd assets
@@ -45,11 +37,11 @@ yarn install
 yarn build
 ```
 
-Finaly, this command run!
+最後に、以下のコマンドでサーバーが立ち上がる
 
 ```
 cd .. && ./bin/awesomesauce
 ```
 
-## LICENSE
+## ライセンス
 [MIT](./LICENSE)
