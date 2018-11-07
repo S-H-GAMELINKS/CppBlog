@@ -31,7 +31,7 @@ export default {
     data: function() {
         return {
             mail: "",
-            pass: ""
+            pass: "",
         }
     },
     moutnted: function() {
@@ -44,6 +44,7 @@ export default {
 
             firebase.auth().onAuthStateChanged((response) => {
                 if (response) {
+                    this.$store.commit('getSession', true);
                     router.push({path: '/'});
                 }
             }, (error) => {

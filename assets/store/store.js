@@ -19,11 +19,15 @@ const store = new Vuex.Store({
     state: {
         firebase: firebase,
         database: database,
-        id: ""
+        id: "",
+        session: false
     },
     mutations: {
         loginBlog(state, id) {
             state.id = String(id);
+        },
+        getSession(state, bool) {
+            state.session = bool;
         }
     }
 });

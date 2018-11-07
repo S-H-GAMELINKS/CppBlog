@@ -18,12 +18,11 @@ export default {
     data: function() {
         return {
             blogs: [],
-            login: false
+            login: this.$store.state.session
         }
     },
     mounted: function() {
         this.getBlogs();
-        this.userLogin();
     },
     methods: {
         getBlogs: function() {
@@ -38,20 +37,6 @@ export default {
             }, (errorObject) => {
                 console.log("The read failed: " + errorObject.code);
             })         
-        },
-        userLogin: function() {
-
-            const firebase = this.$store.state.firebase;
-
-            firebase.auth().onAuthStateChanged((response) => {
-                if (response) {
-                    this.login = true;
-                }
-                console.log(this.login);
-                console.log(response);
-            }, (error) => {
-                console.log(error);
-            });
         },
     }
 
