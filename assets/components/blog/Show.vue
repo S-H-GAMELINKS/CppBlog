@@ -1,13 +1,15 @@
 <template>
-<div class="container">
-    <h1>{{title}}</h1>
-    <vue-simple-markdown :source="content" v-highlight> {{content}} </vue-simple-markdown>
-</div>    
+    <div class="container">
+        <h1>{{title}}</h1>
+        <vue-simple-markdown :source="content" v-highlight>{{content}}</vue-simple-markdown>
+        <comments></comments>
+    </div>    
 </template>
 
 <script>
 
 import { VueSimpleMarkdown } from 'vue-simple-markdown';
+import Comments from './Comments.vue';
 
 export default {
     data: function() {
@@ -17,7 +19,8 @@ export default {
         }
     },
     components: {
-        'vue-simple-markdown': VueSimpleMarkdown
+        'vue-simple-markdown': VueSimpleMarkdown,
+        'comments': Comments
     },
     mounted: function() {
         this.getBlogs();
@@ -31,13 +34,16 @@ export default {
             data.on("value", (snapshot) => {
                 const blog = Object.entries(snapshot.val());
 
-                console.log(blog);
+                for(var i = 0; i < blog.length; i++) {
+                    if(blog[i][0] === "content") {
+                        this.content = blog[i][1]
+                    } else if (blog[i][0] === "title") {
+                        this.title = blog[i][1];
+                    }
+                }
 
-                this.title = blog[1][1];
+                console.log(blog)
 
-                this.content = blog[0][1]
-
-                console.log(blog);
             }, (errorObject) => {
                 console.log("The read failed: " + errorObject.code);
             })
