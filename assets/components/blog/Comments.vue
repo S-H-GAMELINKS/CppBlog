@@ -36,17 +36,29 @@ export default {
         getComments: function() {
             const path = String(this.$route.path).replace(/blogs/, '');
             
-            const data = this.$store.state.database.ref('cppblog' + path + '/comments');
+            const data = this.$store.state.database.ref('cppblog' + path);
             
             data.on("value", (snapshot) => {
+
                 const comments = Object.entries(snapshot.val());
 
-                this.comments.length = 0;
+                if (comments[0][0] === "comments") {
 
-                for(var i = 0; i < comments.length; i++) {
-                    this.comments.push(comments[i][1].comment);
+                    const allComments = this.$store.state.database.ref('cppblog' + path + '/comments');
+
+                    allComments.on("value", (snap) => {
+
+                        const commentsData = Object.entries(snap.val())
+
+                        this.comments.length = 0;
+
+                        for(var i = 0; i < commentsData.length; i++) {
+                            this.comments.push(commentsData[i][1].comment);
+                        }
+                    }, (error) => {
+                        console.log(error);
+                    })
                 }
-
                 console.log(comments);
             }, (errorObject) => {
                 console.log("The read failed: " + errorObject.code);
