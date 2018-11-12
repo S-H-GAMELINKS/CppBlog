@@ -41,6 +41,8 @@ export default {
             data.on("value", (snapshot) => {
                 const comments = Object.entries(snapshot.val());
 
+                this.comments.length = 0;
+
                 for(var i = 0; i < comments.length; i++) {
                     this.comments.push(comments[i][1].comment);
                 }
