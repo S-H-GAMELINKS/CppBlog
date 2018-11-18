@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
+import createPersistedState from 'vuex-persistedstate';
 import * as FireBase from 'firebase';
 
 Vue.use(Vuex);
@@ -32,7 +33,12 @@ const store = new Vuex.Store({
         deleteSession(state, bool) {
             state.session = bool;
         }
-    }
+    },
+    plugins: [ createPersistedState({
+        key: 'loginSession',
+        paths: ['session'],
+        storage: window.sessionStorage,
+    })]
 });
 
 export default store;
