@@ -4,6 +4,7 @@
         <p v-for="(blog, key, index) in blogs" :key=index>
             <router-link :to="{name: 'blogs', params: {id: blog.id}}">{{blog.title}}</router-link>
             <router-link :to="{name: 'edits', params: {id: blog.id}}" v-if="login">Edit</router-link>
+            <button v-if="login" v-on:click="deleteBlog(blog.id)">Delete</button>
         </p>
     </div>
     <div class="container" v-if="login">
@@ -38,6 +39,13 @@ export default {
                 console.log("The read failed: " + errorObject.code);
             })         
         },
+        deleteBlog: function(id) {
+            const data = this.$store.state.database.ref('cppblog/' + String(id));
+
+            data.remove();
+
+            this.$foreceUpdate();
+        }
     }
 
 }
